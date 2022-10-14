@@ -7,6 +7,7 @@ public class UnityChanController : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D rigid2D;
+    GameObject sound;
     private float groundLevel = -3.0f;
     private float dump = 0.8f;
     private float jumpVelocity = 20;
@@ -18,6 +19,7 @@ public class UnityChanController : MonoBehaviour
     {
         this.animator = GetComponent<Animator>();
         this.rigid2D = GetComponent<Rigidbody2D>();
+        this.sound = GameObject.Find("SoundManager");
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class UnityChanController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isGround)
         {
             this.rigid2D.velocity=new Vector2(0, jumpVelocity);
+            this.sound.GetComponent<SoundManager>().SE_ya();
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -43,6 +46,7 @@ public class UnityChanController : MonoBehaviour
         if (transform.position.x < this.deadLine)
         {
             GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
+            this.sound.GetComponent<SoundManager>().SE_achaa(); 
             Destroy(gameObject);
         }
     }

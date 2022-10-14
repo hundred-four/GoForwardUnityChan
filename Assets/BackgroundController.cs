@@ -22,4 +22,6 @@ public class BackgroundController : MonoBehaviour
             transform.position = new Vector2(this.startline, 0);
         }
     }
+
+
 }

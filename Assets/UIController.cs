@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 {
     private GameObject gameoverText;
     private GameObject runLengthText;
+
     private float len = 0;
     private float speed = 5f;
     private bool isGameover = false;
@@ -18,6 +19,7 @@ public class UIController : MonoBehaviour
     {
         this.gameoverText = GameObject.Find("GameOver");
         this.runLengthText = GameObject.Find("RunLength");
+
     }
 
     // Update is called once per frame
